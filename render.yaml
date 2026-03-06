@@ -1,0 +1,33 @@
+services:
+  # ── Backend: Express API ──────────────────────────────────────────────────
+  - type: web
+    name: field-agent-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ANTHROPIC_API_KEY
+        sync: false          # Set this manually in the Render dashboard
+      - key: PORT
+        value: 10000         # Render's default internal port
+
+  # ── Frontend: React / Vite static site ───────────────────────────────────
+  - type: web
+    name: field-agent-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: field-agent-backend
+          type: web
+          property: url      # Render injects the backend's live URL at build time
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html   # SPA fallback for client-side routing

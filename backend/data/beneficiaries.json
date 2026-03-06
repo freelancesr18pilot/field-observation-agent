@@ -1,0 +1,766 @@
+{
+  "beneficiaries": [
+    {
+      "id": "B001",
+      "name": "Priya Sharma",
+      "age": 11,
+      "gender": "female",
+      "village": "Rampur",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Rampur",
+      "class": 5,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Ramesh Sharma",
+        "relation": "father",
+        "occupation": "daily wage laborer",
+        "contact": "9876543210"
+      },
+      "monthlyIncome": 4500,
+      "siblingCount": 3,
+      "schemes": ["MDM", "RTE", "Uniform Distribution"],
+      "attendanceHistory": {
+        "2024-Q1": 72,
+        "2024-Q2": 45,
+        "2024-Q3": 38,
+        "2024-Q4": 55
+      },
+      "riskFactors": ["economic_hardship", "seasonal_migration", "household_responsibilities"],
+      "previousInterventions": [
+        {
+          "date": "2024-06-15",
+          "type": "family_counseling",
+          "conductedBy": "FW-Anita",
+          "outcome": "temporary_improvement",
+          "notes": "Father agreed to send Priya regularly after harvest season."
+        }
+      ],
+      "lastFieldVisit": "2025-01-20",
+      "notes": "Father migrates to Punjab for wheat harvest (April-June). Priya manages household and younger siblings during absence. Mother has chronic illness."
+    },
+    {
+      "id": "B002",
+      "name": "Raju Kumar",
+      "age": 12,
+      "gender": "male",
+      "village": "Shivpur",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Shivpur",
+      "class": 6,
+      "category": "SC",
+      "parentGuardian": {
+        "name": "Devraj Kumar",
+        "relation": "father",
+        "occupation": "brick kiln worker",
+        "contact": "9765432100"
+      },
+      "monthlyIncome": 5000,
+      "siblingCount": 4,
+      "schemes": ["MDM", "RTE", "SC Pre-Matric Scholarship"],
+      "attendanceHistory": {
+        "2024-Q1": 40,
+        "2024-Q2": 22,
+        "2024-Q3": 18,
+        "2024-Q4": 30
+      },
+      "riskFactors": ["child_labor", "debt_bondage", "economic_hardship"],
+      "previousInterventions": [
+        {
+          "date": "2024-03-10",
+          "type": "home_visit",
+          "conductedBy": "FW-Mahesh",
+          "outcome": "no_improvement",
+          "notes": "Family is bonded to brick kiln owner. Raju works in mornings before school."
+        },
+        {
+          "date": "2024-09-05",
+          "type": "CWC_referral",
+          "conductedBy": "FW-Mahesh",
+          "outcome": "pending",
+          "notes": "Referred to Child Welfare Committee for child labor assessment."
+        }
+      ],
+      "lastFieldVisit": "2025-01-10",
+      "notes": "Family in debt to brick kiln owner. Entire family works at kiln. CWC case pending. High dropout risk."
+    },
+    {
+      "id": "B003",
+      "name": "Sunita Devi",
+      "age": 13,
+      "gender": "female",
+      "village": "Chandanpur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Chandanpur",
+      "class": 7,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Bhola Devi",
+        "relation": "mother",
+        "occupation": "domestic worker",
+        "contact": "9654321098"
+      },
+      "monthlyIncome": 3000,
+      "siblingCount": 2,
+      "schemes": ["MDM", "KGBV_eligible", "Cycle Distribution"],
+      "attendanceHistory": {
+        "2024-Q1": 68,
+        "2024-Q2": 60,
+        "2024-Q3": 52,
+        "2024-Q4": 40
+      },
+      "riskFactors": ["early_marriage_risk", "single_parent", "economic_hardship"],
+      "previousInterventions": [
+        {
+          "date": "2024-11-20",
+          "type": "family_counseling",
+          "conductedBy": "FW-Sarita",
+          "outcome": "partial_improvement",
+          "notes": "Relatives pressuring family for early marriage. Mother is supportive of education."
+        }
+      ],
+      "lastFieldVisit": "2025-01-05",
+      "notes": "Father deceased. Extended family pressuring for marriage. Mother works as domestic help. Sunita is bright student. At acute risk of dropout."
+    },
+    {
+      "id": "B004",
+      "name": "Arjun Singh",
+      "age": 10,
+      "gender": "male",
+      "village": "Rampur",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Rampur",
+      "class": 4,
+      "category": "General",
+      "parentGuardian": {
+        "name": "Sukhdev Singh",
+        "relation": "father",
+        "occupation": "small farmer",
+        "contact": "9543210987"
+      },
+      "monthlyIncome": 6000,
+      "siblingCount": 1,
+      "schemes": ["MDM", "RTE"],
+      "attendanceHistory": {
+        "2024-Q1": 80,
+        "2024-Q2": 75,
+        "2024-Q3": 35,
+        "2024-Q4": 60
+      },
+      "riskFactors": ["health_issues_family", "agricultural_labor"],
+      "previousInterventions": [
+        {
+          "date": "2024-08-15",
+          "type": "home_visit",
+          "conductedBy": "FW-Ravi",
+          "outcome": "improved",
+          "notes": "Father was ill with TB. Now recovering. Arjun had to help with farm."
+        }
+      ],
+      "lastFieldVisit": "2025-01-22",
+      "notes": "Father recovering from tuberculosis. Arjun skips school during sowing and harvest to help. Good student otherwise."
+    },
+    {
+      "id": "B005",
+      "name": "Meena Patel",
+      "age": 14,
+      "gender": "female",
+      "village": "Lakshmipur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Lakshmipur",
+      "class": 8,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Ghanshyam Patel",
+        "relation": "father",
+        "occupation": "vegetable vendor",
+        "contact": "9432109876"
+      },
+      "monthlyIncome": 5500,
+      "siblingCount": 3,
+      "schemes": ["MDM", "KGBV_eligible", "Cycle Distribution", "Uniform Distribution"],
+      "attendanceHistory": {
+        "2024-Q1": 55,
+        "2024-Q2": 48,
+        "2024-Q3": 42,
+        "2024-Q4": 35
+      },
+      "riskFactors": ["early_marriage_risk", "distance_to_school", "safety_concerns"],
+      "previousInterventions": [
+        {
+          "date": "2024-07-10",
+          "type": "family_counseling",
+          "conductedBy": "FW-Priya",
+          "outcome": "no_improvement",
+          "notes": "School is 4km away. Family concerned about safety. Father prefers marriage."
+        }
+      ],
+      "lastFieldVisit": "2025-01-15",
+      "notes": "School 4km away with no safe transportation. Father has started discussions with a boy's family. Meena wants to study but family pressure is high. KGBV residential placement could be the solution."
+    },
+    {
+      "id": "B006",
+      "name": "Deepak Yadav",
+      "age": 11,
+      "gender": "male",
+      "village": "Rajnagar",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Rajnagar",
+      "class": 5,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Munni Devi",
+        "relation": "mother",
+        "occupation": "MGNREGA worker",
+        "contact": "9321098765"
+      },
+      "monthlyIncome": 4000,
+      "siblingCount": 2,
+      "schemes": ["MDM", "RTE"],
+      "attendanceHistory": {
+        "2024-Q1": 88,
+        "2024-Q2": 85,
+        "2024-Q3": 82,
+        "2024-Q4": 90
+      },
+      "riskFactors": ["economic_hardship"],
+      "previousInterventions": [],
+      "lastFieldVisit": "2025-01-18",
+      "notes": "Good student. Regular attendance. Father deceased. Mother works hard. Could benefit from scholarship for transition to secondary school."
+    },
+    {
+      "id": "B007",
+      "name": "Kavita Maurya",
+      "age": 12,
+      "gender": "female",
+      "village": "Shivpur",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Shivpur",
+      "class": 6,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Ramkhelawan Maurya",
+        "relation": "father",
+        "occupation": "daily wage laborer",
+        "contact": "9210987654"
+      },
+      "monthlyIncome": 3500,
+      "siblingCount": 3,
+      "schemes": ["MDM", "RTE"],
+      "attendanceHistory": {
+        "2024-Q1": 50,
+        "2024-Q2": 42,
+        "2024-Q3": 30,
+        "2024-Q4": 25
+      },
+      "riskFactors": ["domestic_violence", "household_responsibilities", "economic_hardship"],
+      "previousInterventions": [
+        {
+          "date": "2024-05-20",
+          "type": "home_visit",
+          "conductedBy": "FW-Anita",
+          "outcome": "partial_improvement",
+          "notes": "Father drinks. Mother beaten regularly. Kavita stays home to protect siblings."
+        },
+        {
+          "date": "2024-10-12",
+          "type": "shelter_referral",
+          "conductedBy": "FW-Anita",
+          "outcome": "rejected_by_family",
+          "notes": "Mother refused shelter. Hopes situation will improve."
+        }
+      ],
+      "lastFieldVisit": "2025-01-08",
+      "notes": "Severe domestic violence. Kavita often skips school to protect younger siblings. Teacher reports she appears fearful. Urgent case."
+    },
+    {
+      "id": "B008",
+      "name": "Rahul Gupta",
+      "age": 13,
+      "gender": "male",
+      "village": "Chandanpur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Chandanpur",
+      "class": 7,
+      "category": "General",
+      "parentGuardian": {
+        "name": "Hariom Gupta",
+        "relation": "father",
+        "occupation": "returned migrant worker",
+        "contact": "9109876543"
+      },
+      "monthlyIncome": 7000,
+      "siblingCount": 1,
+      "schemes": ["MDM"],
+      "attendanceHistory": {
+        "2024-Q1": 20,
+        "2024-Q2": 0,
+        "2024-Q3": 55,
+        "2024-Q4": 72
+      },
+      "riskFactors": ["prior_dropout", "migration_return"],
+      "previousInterventions": [
+        {
+          "date": "2024-07-15",
+          "type": "re_enrollment",
+          "conductedBy": "FW-Sarita",
+          "outcome": "improved",
+          "notes": "Rahul was in Mumbai with father for 6 months. Family returned. Re-enrolled in July."
+        }
+      ],
+      "lastFieldVisit": "2025-01-25",
+      "notes": "Returned from migration. Father now working locally. Adjustment issues initially but improving. Needs academic support."
+    },
+    {
+      "id": "B009",
+      "name": "Anita Kumari",
+      "age": 10,
+      "gender": "female",
+      "village": "Govindpur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Govindpur",
+      "class": 4,
+      "category": "SC",
+      "parentGuardian": {
+        "name": "Savitri Kumari",
+        "relation": "mother",
+        "occupation": "daily wage laborer",
+        "contact": "9098765432"
+      },
+      "monthlyIncome": 3500,
+      "siblingCount": 2,
+      "schemes": ["MDM", "RTE", "SC Pre-Matric Scholarship"],
+      "attendanceHistory": {
+        "2024-Q1": 78,
+        "2024-Q2": 70,
+        "2024-Q3": 65,
+        "2024-Q4": 68
+      },
+      "riskFactors": ["single_parent", "economic_hardship", "caste_discrimination"],
+      "previousInterventions": [
+        {
+          "date": "2024-04-10",
+          "type": "teacher_sensitization",
+          "conductedBy": "FW-Ravi",
+          "outcome": "improved",
+          "notes": "Reports of caste-based discrimination by teacher. After sensitization, situation improved."
+        }
+      ],
+      "lastFieldVisit": "2025-01-12",
+      "notes": "Single mother working hard. Anita is bright but shy. Reports feeling unwelcome at times. Scholarship money helps but disbursement is delayed."
+    },
+    {
+      "id": "B010",
+      "name": "Suresh Rawat",
+      "age": 14,
+      "gender": "male",
+      "village": "Krishnanagar",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Krishnanagar",
+      "class": 8,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Dinesh Rawat",
+        "relation": "father",
+        "occupation": "farmer",
+        "contact": "9876501234"
+      },
+      "monthlyIncome": 8000,
+      "siblingCount": 2,
+      "schemes": ["MDM"],
+      "attendanceHistory": {
+        "2024-Q1": 82,
+        "2024-Q2": 25,
+        "2024-Q3": 80,
+        "2024-Q4": 35
+      },
+      "riskFactors": ["agricultural_labor", "seasonal_absence"],
+      "previousInterventions": [],
+      "lastFieldVisit": "2025-01-19",
+      "notes": "Skips school during harvest and sowing seasons. Helps with farm. Otherwise good student. At risk of failing class 8 due to low attendance."
+    },
+    {
+      "id": "B011",
+      "name": "Lakshmi Bai",
+      "age": 11,
+      "gender": "female",
+      "village": "Saraswatipur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Saraswatipur",
+      "class": 5,
+      "category": "SC",
+      "parentGuardian": {
+        "name": "Ramji Bai",
+        "relation": "grandmother",
+        "occupation": "retired / no income",
+        "contact": "9765012345"
+      },
+      "monthlyIncome": 1500,
+      "siblingCount": 0,
+      "schemes": ["MDM", "RTE", "SC Pre-Matric Scholarship"],
+      "attendanceHistory": {
+        "2024-Q1": 60,
+        "2024-Q2": 55,
+        "2024-Q3": 50,
+        "2024-Q4": 58
+      },
+      "riskFactors": ["orphan", "extreme_poverty", "guardian_elderly"],
+      "previousInterventions": [
+        {
+          "date": "2024-05-10",
+          "type": "scholarship_facilitation",
+          "conductedBy": "FW-Priya",
+          "outcome": "improved",
+          "notes": "Helped open bank account for scholarship. Lakshmi now receives SC scholarship."
+        }
+      ],
+      "lastFieldVisit": "2025-01-14",
+      "notes": "Both parents died in road accident in 2023. Lives with elderly grandmother. Grandmother cannot work. Scholarship is primary income. High dropout risk if grandmother's health deteriorates."
+    },
+    {
+      "id": "B012",
+      "name": "Vijay Prajapati",
+      "age": 12,
+      "gender": "male",
+      "village": "Devpur",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Devpur",
+      "class": 6,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Laxman Prajapati",
+        "relation": "father",
+        "occupation": "potter",
+        "contact": "9654012345"
+      },
+      "monthlyIncome": 4000,
+      "siblingCount": 2,
+      "schemes": ["MDM", "RTE"],
+      "attendanceHistory": {
+        "2024-Q1": 45,
+        "2024-Q2": 40,
+        "2024-Q3": 38,
+        "2024-Q4": 42
+      },
+      "riskFactors": ["disability", "bullying", "distance_to_school"],
+      "previousInterventions": [
+        {
+          "date": "2024-06-20",
+          "type": "disability_assessment",
+          "conductedBy": "FW-Mahesh",
+          "outcome": "partial_improvement",
+          "notes": "Vijay has partial hearing impairment. Referred to SADP for disability certificate."
+        }
+      ],
+      "lastFieldVisit": "2025-01-11",
+      "notes": "Partial hearing impairment. Faces bullying. No special educator at school. Disability certificate pending. Eligible for disability scholarship."
+    },
+    {
+      "id": "B013",
+      "name": "Pooja Chauhan",
+      "age": 13,
+      "gender": "female",
+      "village": "Anandpur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Anandpur",
+      "class": 7,
+      "category": "SC",
+      "parentGuardian": {
+        "name": "Ramavtar Chauhan",
+        "relation": "father",
+        "occupation": "government employee (peon)",
+        "contact": "9543012345"
+      },
+      "monthlyIncome": 12000,
+      "siblingCount": 1,
+      "schemes": ["MDM", "SC Pre-Matric Scholarship"],
+      "attendanceHistory": {
+        "2024-Q1": 92,
+        "2024-Q2": 90,
+        "2024-Q3": 88,
+        "2024-Q4": 94
+      },
+      "riskFactors": [],
+      "previousInterventions": [],
+      "lastFieldVisit": "2025-01-20",
+      "notes": "Excellent student. Rank 1 in class. Interested in becoming a doctor. Good support from family. Model case. Could be peer mentor."
+    },
+    {
+      "id": "B014",
+      "name": "Ramesh Nishad",
+      "age": 10,
+      "gender": "male",
+      "village": "Rampur",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Rampur",
+      "class": 4,
+      "category": "SC",
+      "parentGuardian": {
+        "name": "Phoolmati Nishad",
+        "relation": "mother",
+        "occupation": "fisherperson",
+        "contact": "9432012345"
+      },
+      "monthlyIncome": 3000,
+      "siblingCount": 3,
+      "schemes": ["MDM", "RTE"],
+      "attendanceHistory": {
+        "2024-Q1": 30,
+        "2024-Q2": 45,
+        "2024-Q3": 52,
+        "2024-Q4": 60
+      },
+      "riskFactors": ["new_enrollment", "learning_difficulties", "economic_hardship"],
+      "previousInterventions": [
+        {
+          "date": "2024-02-05",
+          "type": "enrollment_drive",
+          "conductedBy": "FW-Ravi",
+          "outcome": "improved",
+          "notes": "Ramesh was out of school for 2 years. Enrolled through enrollment drive."
+        }
+      ],
+      "lastFieldVisit": "2025-01-16",
+      "notes": "Out of school for 2 years before re-enrollment. Learning gaps. Improving slowly. Needs remedial teaching support."
+    },
+    {
+      "id": "B015",
+      "name": "Seema Khatoon",
+      "age": 14,
+      "gender": "female",
+      "village": "Shivpur",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Shivpur",
+      "class": 8,
+      "category": "Minority",
+      "parentGuardian": {
+        "name": "Abdul Khatoon",
+        "relation": "father",
+        "occupation": "weaver",
+        "contact": "9321012345"
+      },
+      "monthlyIncome": 5000,
+      "siblingCount": 4,
+      "schemes": ["MDM", "Minority Pre-Matric Scholarship"],
+      "attendanceHistory": {
+        "2024-Q1": 65,
+        "2024-Q2": 60,
+        "2024-Q3": 55,
+        "2024-Q4": 48
+      },
+      "riskFactors": ["early_marriage_risk", "community_social_norms", "economic_hardship"],
+      "previousInterventions": [
+        {
+          "date": "2024-09-18",
+          "type": "community_meeting",
+          "conductedBy": "FW-Anita",
+          "outcome": "partial_improvement",
+          "notes": "Community meeting with women's group. Some positive response but patriarchal norms strong."
+        }
+      ],
+      "lastFieldVisit": "2025-01-17",
+      "notes": "Weaver community. Girls expected to learn weaving and stay home. Father facing peer pressure. Mother supportive but powerless. Scholarship helps but social norms strong barrier."
+    },
+    {
+      "id": "B016",
+      "name": "Amit Verma",
+      "age": 11,
+      "gender": "male",
+      "village": "Lakshmipur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Lakshmipur",
+      "class": 5,
+      "category": "General",
+      "parentGuardian": {
+        "name": "Santosh Verma",
+        "relation": "father",
+        "occupation": "daily wage laborer",
+        "contact": "9210012345"
+      },
+      "monthlyIncome": 4000,
+      "siblingCount": 2,
+      "schemes": ["MDM", "RTE"],
+      "attendanceHistory": {
+        "2024-Q1": 55,
+        "2024-Q2": 48,
+        "2024-Q3": 40,
+        "2024-Q4": 35
+      },
+      "riskFactors": ["malnutrition", "health_issues", "economic_hardship"],
+      "previousInterventions": [
+        {
+          "date": "2024-07-20",
+          "type": "health_referral",
+          "conductedBy": "FW-Sarita",
+          "outcome": "partial_improvement",
+          "notes": "Severely underweight. Referred to ANM for nutritional support. Iron-folic supplements started."
+        }
+      ],
+      "lastFieldVisit": "2025-01-13",
+      "notes": "Severely malnourished. Misses school due to illness frequently. MDM is often his only meal. Needs nutritional intervention urgently."
+    },
+    {
+      "id": "B017",
+      "name": "Geeta Kumari",
+      "age": 12,
+      "gender": "female",
+      "village": "Rajnagar",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Rajnagar",
+      "class": 6,
+      "category": "ST",
+      "parentGuardian": {
+        "name": "Shyam Kumar",
+        "relation": "father",
+        "occupation": "forest produce collector",
+        "contact": "9109012345"
+      },
+      "monthlyIncome": 2500,
+      "siblingCount": 4,
+      "schemes": ["MDM", "ST Pre-Matric Scholarship"],
+      "attendanceHistory": {
+        "2024-Q1": 48,
+        "2024-Q2": 42,
+        "2024-Q3": 38,
+        "2024-Q4": 40
+      },
+      "riskFactors": ["remote_area", "economic_hardship", "language_barrier", "seasonal_migration"],
+      "previousInterventions": [
+        {
+          "date": "2024-08-10",
+          "type": "home_visit",
+          "conductedBy": "FW-Ravi",
+          "outcome": "partial_improvement",
+          "notes": "Family speaks Gondi dialect. Communication barrier with Hindi-medium school."
+        }
+      ],
+      "lastFieldVisit": "2025-01-21",
+      "notes": "Tribal community. School 5km away in hilly terrain. Language barrier in Hindi-medium school. Scholarship received but language issues affecting learning."
+    },
+    {
+      "id": "B018",
+      "name": "Mohan Das",
+      "age": 13,
+      "gender": "male",
+      "village": "Govindpur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Upper Primary School, Govindpur",
+      "class": 7,
+      "category": "SC",
+      "parentGuardian": {
+        "name": "Ganga Das",
+        "relation": "father",
+        "occupation": "manual scavenger (reformed)",
+        "contact": "9876012345"
+      },
+      "monthlyIncome": 3000,
+      "siblingCount": 3,
+      "schemes": ["MDM", "SC Pre-Matric Scholarship"],
+      "attendanceHistory": {
+        "2024-Q1": 35,
+        "2024-Q2": 28,
+        "2024-Q3": 32,
+        "2024-Q4": 38
+      },
+      "riskFactors": ["child_labor", "caste_discrimination", "economic_hardship"],
+      "previousInterventions": [
+        {
+          "date": "2024-04-15",
+          "type": "home_visit",
+          "conductedBy": "FW-Mahesh",
+          "outcome": "no_improvement",
+          "notes": "Mohan works as domestic servant for upper-caste family in mornings. Family deeply in debt."
+        }
+      ],
+      "lastFieldVisit": "2025-01-09",
+      "notes": "Works as domestic help 4-6am daily. Family faces discrimination. Scholarship money intercepted by village moneylender as debt repayment."
+    },
+    {
+      "id": "B019",
+      "name": "Rekha Tiwari",
+      "age": 10,
+      "gender": "female",
+      "village": "Chandanpur",
+      "district": "Hardoi",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Chandanpur",
+      "class": 4,
+      "category": "General",
+      "parentGuardian": {
+        "name": "Shivkumar Tiwari",
+        "relation": "father",
+        "occupation": "teacher (private school)",
+        "contact": "9765012340"
+      },
+      "monthlyIncome": 8000,
+      "siblingCount": 1,
+      "schemes": ["MDM"],
+      "attendanceHistory": {
+        "2024-Q1": 70,
+        "2024-Q2": 62,
+        "2024-Q3": 55,
+        "2024-Q4": 48
+      },
+      "riskFactors": ["domestic_violence", "emotional_abuse"],
+      "previousInterventions": [
+        {
+          "date": "2024-10-05",
+          "type": "teacher_alert",
+          "conductedBy": "FW-Sarita",
+          "outcome": "under_observation",
+          "notes": "Teacher noticed bruises. Father is aggressive. Rekha appears withdrawn and frightened."
+        }
+      ],
+      "lastFieldVisit": "2025-01-07",
+      "notes": "Father physically abusive. Economic situation is relatively better but emotional and physical abuse severe. Rekha is withdrawn. Needs psychological support and safe reporting channel."
+    },
+    {
+      "id": "B020",
+      "name": "Sanjay Kumar",
+      "age": 11,
+      "gender": "male",
+      "village": "Krishnanagar",
+      "district": "Sitapur",
+      "state": "Uttar Pradesh",
+      "school": "Government Primary School, Krishnanagar",
+      "class": 5,
+      "category": "OBC",
+      "parentGuardian": {
+        "name": "Ramkumar",
+        "relation": "father",
+        "occupation": "auto-rickshaw driver",
+        "contact": "9654012340"
+      },
+      "monthlyIncome": 9000,
+      "siblingCount": 1,
+      "schemes": ["MDM"],
+      "attendanceHistory": {
+        "2024-Q1": 90,
+        "2024-Q2": 88,
+        "2024-Q3": 85,
+        "2024-Q4": 92
+      },
+      "riskFactors": [],
+      "previousInterventions": [],
+      "lastFieldVisit": "2025-01-23",
+      "notes": "Excellent student. Class monitor. Parents very supportive. Zero risk profile. Good for peer mentorship program."
+    }
+  ]
+}

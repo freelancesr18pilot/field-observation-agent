@@ -1,0 +1,244 @@
+.container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.liveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #22c55e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.chain {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Base step */
+.step {
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  overflow: hidden;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.icon {
+  font-size: 14px;
+}
+
+.label {
+  flex: 1;
+}
+
+.iteration {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.stepContent {
+  padding: 0 14px 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Step variants */
+.thought {
+  background: var(--thought-bg);
+  border-left-color: var(--thought-border);
+}
+.thought .stepHeader { color: var(--thought-text); }
+.thought .stepContent { color: #1e3a8a; }
+
+.action {
+  background: var(--action-bg);
+  border-left-color: var(--action-border);
+}
+.action .stepHeader { color: var(--action-text); }
+
+.result {
+  background: var(--result-bg);
+  border-left-color: var(--result-border);
+}
+.result .stepHeader { color: var(--result-text); }
+
+.final {
+  background: var(--final-bg);
+  border-left-color: var(--final-border);
+}
+.final .stepHeader { color: var(--final-text); }
+.final .stepContent { color: #3b0764; font-weight: 500; }
+
+.error {
+  background: #fef2f2;
+  border-left-color: #ef4444;
+}
+.error .stepHeader { color: #b91c1c; }
+
+.streaming {
+  background: #f8faff;
+  border-left-color: #93c5fd;
+  opacity: 0.9;
+}
+.streaming .stepHeader { color: #3b82f6; }
+
+/* Tool call code */
+.toolCall {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  background: rgba(0,0,0,0.04);
+  padding: 8px 10px;
+  border-radius: 5px;
+  color: var(--action-text);
+  word-break: break-all;
+}
+
+/* Result summary */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.summaryRow {
+  font-size: 13px;
+  color: var(--result-text);
+}
+
+.highlight {
+  color: #15803d;
+}
+
+.alert {
+  color: #b45309;
+  font-weight: 500;
+}
+
+/* Raw JSON */
+.rawToggle {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-muted);
+  user-select: none;
+  margin-bottom: 6px;
+}
+
+.raw {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.03);
+  padding: 8px;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Streaming text */
+.streamingLine {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.streamingText {
+  font-size: 13px;
+  color: #1e3a8a;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #3b82f6;
+  border-radius: 1px;
+  animation: blink 0.9s step-end infinite;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Thinking dots */
+.thinkingPlaceholder {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 14px;
+  opacity: 0.5;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: dotBounce 1.2s ease-in-out infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.15s; }
+.dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: scale(1); }
+  40% { transform: scale(1.3); }
+}

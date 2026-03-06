@@ -1,0 +1,468 @@
+{
+  "schemes": [
+    {
+      "id": "MDM",
+      "name": "Mid-Day Meal Scheme",
+      "eligibility": {
+        "categories": ["all"],
+        "classes": ["1-8"],
+        "conditions": ["enrolled in government school"]
+      },
+      "benefit": "Free cooked meal on all school days",
+      "implementingAgency": "State Education Department",
+      "notes": "Strongest pull factor for attendance. Missing MDM = child likely hungry."
+    },
+    {
+      "id": "RTE",
+      "name": "Right to Education Act",
+      "eligibility": {
+        "categories": ["all"],
+        "ageRange": "6-14",
+        "conditions": ["out of school or irregular attendance"]
+      },
+      "benefit": "Free and compulsory education, free uniforms, free textbooks",
+      "implementingAgency": "District Education Office",
+      "notes": "Mandates enrollment and attendance. Schools must track dropouts."
+    },
+    {
+      "id": "SC_PREMATRIC",
+      "name": "Pre-Matric Scholarship for SC Students",
+      "eligibility": {
+        "categories": ["SC"],
+        "classes": ["1-8"],
+        "incomeLimit": 250000,
+        "conditions": ["minimum 60% attendance required for renewal"]
+      },
+      "benefit": "Rs 150-750/month depending on class and gender",
+      "implementingAgency": "Social Welfare Department",
+      "disbursementCycle": "quarterly",
+      "notes": "Delayed disbursement is common problem. Direct bank transfer to child/guardian account."
+    },
+    {
+      "id": "ST_PREMATRIC",
+      "name": "Pre-Matric Scholarship for ST Students",
+      "eligibility": {
+        "categories": ["ST"],
+        "classes": ["1-8"],
+        "incomeLimit": 250000,
+        "conditions": ["minimum 60% attendance required for renewal"]
+      },
+      "benefit": "Rs 150-750/month depending on class and gender",
+      "implementingAgency": "Tribal Welfare Department",
+      "disbursementCycle": "quarterly",
+      "notes": "Often requires tribal certificate which families may not have."
+    },
+    {
+      "id": "MINORITY_PREMATRIC",
+      "name": "Pre-Matric Scholarship for Minority Students",
+      "eligibility": {
+        "categories": ["Minority"],
+        "classes": ["1-8"],
+        "incomeLimit": 100000,
+        "conditions": ["minimum 50% attendance required"]
+      },
+      "benefit": "Rs 1000/year maintenance + Rs 500 ad-hoc grant",
+      "implementingAgency": "Minority Welfare Department",
+      "disbursementCycle": "annual",
+      "notes": "Requires minority community certificate. Community leaders can help with documentation."
+    },
+    {
+      "id": "KGBV",
+      "name": "Kasturba Gandhi Balika Vidyalaya",
+      "eligibility": {
+        "categories": ["SC", "ST", "OBC", "Minority", "BPL"],
+        "gender": "female",
+        "classes": ["6-8"],
+        "conditions": [
+          "girl at risk of dropout",
+          "distance to school greater than 3km",
+          "OR early marriage risk",
+          "OR difficult family situation"
+        ]
+      },
+      "benefit": "Free residential schooling, meals, uniforms, books",
+      "implementingAgency": "District Education Office / KGBV Warden",
+      "notes": "Most powerful intervention for girls at risk. Residential nature addresses multiple barriers. District has 3 KGBV centers with limited seats."
+    },
+    {
+      "id": "CYCLE",
+      "name": "Free Cycle Distribution Scheme",
+      "eligibility": {
+        "categories": ["all"],
+        "gender": "female",
+        "classes": ["6-8"],
+        "conditions": ["enrolled in government upper primary school"]
+      },
+      "benefit": "One free cycle",
+      "implementingAgency": "District Education Office",
+      "notes": "Addresses distance barrier for girls. Often delays of 6-12 months in distribution."
+    },
+    {
+      "id": "CHILD_LABOR_REHAB",
+      "name": "Child Labor Rehabilitation Program",
+      "eligibility": {
+        "categories": ["all"],
+        "conditions": [
+          "child engaged in labor",
+          "age below 14"
+        ]
+      },
+      "benefit": "Withdrawal from labor, special training, family compensation Rs 3000/month for 2 years",
+      "implementingAgency": "District Child Labor Committee / Labor Department",
+      "legalBasis": "Child Labor (Prohibition and Regulation) Act",
+      "notes": "Requires complaint or identification by field worker. CWC must be involved. Employer can be prosecuted."
+    },
+    {
+      "id": "CWC_INTERVENTION",
+      "name": "Child Welfare Committee Intervention",
+      "eligibility": {
+        "categories": ["all"],
+        "conditions": [
+          "child in need of care and protection",
+          "OR domestic violence",
+          "OR child labor",
+          "OR orphan with inadequate care"
+        ]
+      },
+      "benefit": "Legal protection, shelter if needed, rehabilitation",
+      "implementingAgency": "Child Welfare Committee (CWC)",
+      "notes": "Powerful but requires documentation. Field worker can directly report to CWC. Response time 48-72 hours for urgent cases."
+    },
+    {
+      "id": "DISABILITY_SCHOLARSHIP",
+      "name": "Scholarship for Disabled Students",
+      "eligibility": {
+        "categories": ["all"],
+        "conditions": [
+          "disability certificate from CMO office",
+          "enrolled in school",
+          "disability above 40%"
+        ]
+      },
+      "benefit": "Rs 200/month + priority access to special educators",
+      "implementingAgency": "Social Welfare Department",
+      "notes": "Requires disability certificate. Process can take 3-6 months. District hospital assessment needed."
+    },
+    {
+      "id": "NRC",
+      "name": "Nutrition Rehabilitation Center",
+      "eligibility": {
+        "categories": ["all"],
+        "conditions": [
+          "severe acute malnutrition (SAM)",
+          "weight-for-height Z-score less than -3"
+        ]
+      },
+      "benefit": "30-day residential treatment, therapeutic food, health monitoring",
+      "implementingAgency": "District Hospital / ICDS",
+      "notes": "For severely malnourished children. ANM referral needed. Free treatment and food."
+    },
+    {
+      "id": "ANGANWADI",
+      "name": "Anganwadi Supplementary Nutrition",
+      "eligibility": {
+        "categories": ["all"],
+        "ageRange": "0-14",
+        "conditions": ["underweight or malnourished"]
+      },
+      "benefit": "Daily supplementary nutrition, health checkups",
+      "implementingAgency": "ICDS / AWW",
+      "notes": "Immediate nutrition support. AWW (Anganwadi Worker) in every village. Can refer to NRC."
+    }
+  ],
+  "communityPatterns": [
+    {
+      "village": "Rampur",
+      "district": "Sitapur",
+      "population": 2800,
+      "primaryRiskFactors": ["seasonal_migration", "agricultural_labor", "economic_hardship"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["April", "May", "October", "November"],
+        "reason": "Rabi and Kharif harvest seasons. Men migrate to Punjab/Haryana. Girls take household responsibilities.",
+        "averageAttendance": 58,
+        "dropoutRateAnnual": 12
+      },
+      "successfulInterventions": [
+        "Community volunteer monitors during migration season",
+        "Flexible school timing during harvest",
+        "Mahila samiti engagement to address household burden"
+      ],
+      "pendingActions": ["ASHA worker coordination for health issues", "Bridge course for migration returnees"]
+    },
+    {
+      "village": "Shivpur",
+      "district": "Sitapur",
+      "population": 3200,
+      "primaryRiskFactors": ["child_labor", "brick_kiln", "domestic_violence", "debt_bondage"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["February", "March", "April", "May", "June"],
+        "reason": "Brick kiln season. Entire families including children work at kilns. High domestic violence rate.",
+        "averageAttendance": 45,
+        "dropoutRateAnnual": 22
+      },
+      "successfulInterventions": [
+        "Brick kiln owner meetings and awareness",
+        "Child Labor Committee raids",
+        "Seasonal bridge school at kiln site"
+      ],
+      "pendingActions": ["CWC cases for 3 children", "Domestic violence shelter tie-up with SNHU"],
+      "alerts": "HIGH RISK - 3 active CWC cases. Domestic violence hotspot. Coordinate with police."
+    },
+    {
+      "village": "Chandanpur",
+      "district": "Hardoi",
+      "population": 2500,
+      "primaryRiskFactors": ["early_marriage", "single_parent", "migration_return"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["November", "December", "January"],
+        "reason": "Marriage season. Social pressure for early marriage peaks in winter. Also some post-harvest migration.",
+        "averageAttendance": 62,
+        "dropoutRateAnnual": 15
+      },
+      "successfulInterventions": [
+        "KGBV enrollment for at-risk girls",
+        "Mahila Samiti 'roko shaadi' campaign",
+        "Adolescent girls group formation"
+      ],
+      "pendingActions": ["2 girls at high marriage risk identified this month"]
+    },
+    {
+      "village": "Lakshmipur",
+      "district": "Hardoi",
+      "population": 2100,
+      "primaryRiskFactors": ["early_marriage", "distance_to_school", "malnutrition", "economic_hardship"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["July", "August"],
+        "reason": "Monsoon makes road to school difficult. Also illness due to waterborne diseases.",
+        "averageAttendance": 56,
+        "dropoutRateAnnual": 18
+      },
+      "successfulInterventions": [
+        "Cycle distribution reduced dropout for girls by 15%",
+        "KGBV enrollment for 4 girls last year"
+      ],
+      "pendingActions": ["Nutrition monitoring for 3 children", "KGBV application for 2 eligible girls"]
+    },
+    {
+      "village": "Govindpur",
+      "district": "Hardoi",
+      "population": 1900,
+      "primaryRiskFactors": ["caste_discrimination", "child_labor", "debt_bondage", "SC_ST_vulnerability"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["variable"],
+        "reason": "Caste-based discrimination causes irregular attendance. Child labor in domestic settings.",
+        "averageAttendance": 50,
+        "dropoutRateAnnual": 20
+      },
+      "successfulInterventions": [
+        "Teacher sensitization on caste discrimination",
+        "Scholarship facilitation for SC families",
+        "Anti-child labor awareness with women's groups"
+      ],
+      "pendingActions": ["Scholarship diversion investigation in 2 cases", "CWC report for domestic labor"]
+    },
+    {
+      "village": "Rajnagar",
+      "district": "Sitapur",
+      "population": 2600,
+      "primaryRiskFactors": ["remote_area", "economic_hardship", "tribal_community"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["June", "July", "August"],
+        "reason": "Forest collection season. Tribal families collect forest produce. Children help.",
+        "averageAttendance": 62,
+        "dropoutRateAnnual": 10
+      },
+      "successfulInterventions": [
+        "ST scholarship facilitation",
+        "Bilingual learning materials (Gondi-Hindi)",
+        "Community mobilization through tribal leaders"
+      ],
+      "pendingActions": ["Language bridge program needed"]
+    },
+    {
+      "village": "Krishnanagar",
+      "district": "Sitapur",
+      "population": 2200,
+      "primaryRiskFactors": ["agricultural_labor", "seasonal_absence"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["October", "November", "April"],
+        "reason": "Two major harvest seasons. Agricultural community.",
+        "averageAttendance": 68,
+        "dropoutRateAnnual": 8
+      },
+      "successfulInterventions": [
+        "Flexible exam schedule accommodation",
+        "Make-up classes after harvest season",
+        "Farmer community meetings about education value"
+      ],
+      "pendingActions": ["Board exam attendance tracking for class 8 students"]
+    },
+    {
+      "village": "Saraswatipur",
+      "district": "Hardoi",
+      "population": 1800,
+      "primaryRiskFactors": ["orphan_children", "elderly_guardians", "extreme_poverty"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["variable - depends on guardian health"],
+        "reason": "Several orphan children with elderly guardians. Attendance disrupted when guardian is ill.",
+        "averageAttendance": 60,
+        "dropoutRateAnnual": 12
+      },
+      "successfulInterventions": [
+        "Scholarship facilitation for vulnerable children",
+        "KGBV enrollment considered for orphan girls",
+        "Community foster arrangement in one case"
+      ],
+      "pendingActions": ["Identify residential options for orphan children with unstable guardians"]
+    },
+    {
+      "village": "Devpur",
+      "district": "Sitapur",
+      "population": 2000,
+      "primaryRiskFactors": ["disability", "economic_hardship"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": ["variable"],
+        "reason": "Children with disabilities face access and inclusion barriers.",
+        "averageAttendance": 65,
+        "dropoutRateAnnual": 9
+      },
+      "successfulInterventions": [
+        "Disability certificate facilitation",
+        "Teacher training on inclusive education",
+        "Barrier-free infrastructure requests"
+      ],
+      "pendingActions": ["2 children need disability certificates", "Special educator request pending"]
+    },
+    {
+      "village": "Anandpur",
+      "district": "Hardoi",
+      "population": 1600,
+      "primaryRiskFactors": ["none_significant"],
+      "attendancePatterns": {
+        "peakAbsenceMonths": [],
+        "reason": "Relatively stable community with engaged parents.",
+        "averageAttendance": 80,
+        "dropoutRateAnnual": 3
+      },
+      "successfulInterventions": [
+        "Peer mentorship program with top students",
+        "Village education committee active"
+      ],
+      "pendingActions": []
+    }
+  ],
+  "interventionPlaybook": {
+    "child_labor": {
+      "immediate": [
+        "Document evidence of child labor (photographs if safe, written notes)",
+        "File complaint with District Child Labor Committee (DCLC)",
+        "Report to Child Welfare Committee (CWC) for protection",
+        "Inform school headmaster to maintain enrollment",
+        "Engage with employer to stop child labor - warn of legal consequences"
+      ],
+      "mediumTerm": [
+        "Support family with Child Labor Rehabilitation compensation (Rs 3000/month)",
+        "Enroll child in bridge course or special training if learning gaps exist",
+        "Connect family with alternative livelihood support",
+        "Regular follow-up visits every 2 weeks"
+      ],
+      "escalation": [
+        "If employer continues: file FIR under Child Labor Act",
+        "If family uncooperative: CWC can take child into care",
+        "Coordinate with local police child protection unit"
+      ]
+    },
+    "early_marriage_risk": {
+      "immediate": [
+        "Engage with family - emphasize legal consequences (PCMA - child marriage is criminal offense)",
+        "Connect girl with KGBV residential school if eligible",
+        "Mobilize Mahila Samiti and women's groups for community pressure",
+        "Alert Block Education Officer if marriage is imminent"
+      ],
+      "mediumTerm": [
+        "Enroll girl in KGBV or residential facility",
+        "Engage adolescent girls group for peer support",
+        "Support family economically through schemes to reduce 'burden' perception",
+        "Sensitization sessions with extended family"
+      ],
+      "escalation": [
+        "Report to District Child Protection Officer if marriage date is set",
+        "CWC can issue protective order",
+        "Childline (1098) for emergency intervention",
+        "Police complaint if marriage ceremony is being organized"
+      ]
+    },
+    "domestic_violence": {
+      "immediate": [
+        "Ensure immediate safety of child - assess severity",
+        "Connect mother with One Stop Center (OSC) for support",
+        "Report to CWC if child is in danger",
+        "Document injuries and incidents",
+        "Inform DCPO (District Child Protection Officer)"
+      ],
+      "mediumTerm": [
+        "Legal aid for mother through District Legal Services Authority",
+        "Psychological counseling for child through ICPS support",
+        "Consider KGBV or other residential option for child's safety",
+        "Engage with father through counseling if safe to do so"
+      ],
+      "escalation": [
+        "File NCR or FIR if violence is severe",
+        "Shelter placement through OSC or short-stay home",
+        "CWC order for child's protection",
+        "Protection order under PWDVA (Protection of Women from Domestic Violence Act)"
+      ]
+    },
+    "seasonal_migration": {
+      "immediate": [
+        "Register family with migration monitoring system",
+        "Ensure enrollment certificate is portable (Migration Certificate)",
+        "Connect with field worker at destination village if possible"
+      ],
+      "mediumTerm": [
+        "Seasonal bridge school at migration destination",
+        "Community volunteer to monitor children during parent migration",
+        "Engage with self-help groups to organize alternative childcare"
+      ],
+      "escalation": [
+        "Escalate if children are taken along with migrating parents and drop out completely"
+      ]
+    },
+    "malnutrition": {
+      "immediate": [
+        "Refer to ANM (Auxiliary Nurse Midwife) for immediate health assessment",
+        "Ensure child is receiving MDM (Mid-Day Meal) regularly",
+        "Connect with Anganwadi Worker for supplementary nutrition",
+        "Check if SAM (Severe Acute Malnutrition) - refer to NRC if yes"
+      ],
+      "mediumTerm": [
+        "Monthly weight monitoring",
+        "Iron-Folic Acid supplements through ICDS",
+        "Family nutrition counseling",
+        "Connect with POSHAN Abhiyan local committee"
+      ],
+      "escalation": [
+        "SAM children: mandatory NRC referral",
+        "Failure to thrive despite intervention: report to CMHO",
+        "Suspected neglect: CWC referral"
+      ]
+    },
+    "scholarship_diversion": {
+      "immediate": [
+        "Verify scholarship amount and disbursement status from department records",
+        "Check if child has own bank account or Aadhaar-linked account",
+        "Document the diversion with specific amounts and dates"
+      ],
+      "mediumTerm": [
+        "Open/link child's own bank account for direct transfer",
+        "Report to Social Welfare Officer / District Welfare Officer",
+        "Involve women's SHG to support family against moneylender pressure"
+      ],
+      "escalation": [
+        "Complaint to DM office if government officials complicit",
+        "Report moneylender for illegal interest to District administration",
+        "Legal aid for family if debt is bonded labor"
+      ]
+    }
+  }
+}
