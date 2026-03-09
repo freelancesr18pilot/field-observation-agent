@@ -68,7 +68,7 @@ router.get("/beneficiaries", (req, res) => {
  *   event: done      — stream complete
  */
 router.post("/analyze", async (req, res) => {
-  const { observation } = req.body;
+  const { observation, lang = "en" } = req.body;
 
   if (!observation || observation.trim().length < 10) {
     return res.status(400).json({ error: "observation text is required (min 10 chars)" });
@@ -97,13 +97,14 @@ router.post("/analyze", async (req, res) => {
     // Run the ReAct reasoning loop
     const { finalAnswer, conversationHistory } = await runReActLoop(
       observation,
-      emit
+      emit,
+      lang
     );
 
     // Generate the structured action plan
     sendEvent("status", { message: "Generating action plan..." });
 
-    const plan = await generateActionPlan(finalAnswer, conversationHistory);
+    const plan = await generateActionPlan(finalAnswer, conversationHistory, lang);
     sendEvent("plan", plan);
   } catch (err) {
     console.error("Agent error:", err);

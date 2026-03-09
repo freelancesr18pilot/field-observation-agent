@@ -21,7 +21,21 @@ import { TOOL_DESCRIPTIONS, executeTool } from "../tools/index.js";
 
 const MAX_ITERATIONS = 6;
 
-const SYSTEM_PROMPT = `You are an experienced NGO field coordinator helping field workers support children's education outcomes in rural India.
+const HINDI_LANG_INSTRUCTION = `
+
+भाषा आवश्यकता — अनिवार्य: आपको संपूर्ण विश्लेषण हिंदी में करना है।
+- प्रत्येक Thought हिंदी में होना चाहिए
+- Final Answer हिंदी में होना चाहिए
+- Tool के नाम (जैसे get_beneficiary_history) और JSON parameter keys अंग्रेज़ी में रखें
+- बाकी सब कुछ हिंदी में लिखें
+
+सही format का उदाहरण:
+Thought: [हिंदी में आपका तर्क]
+Action: get_beneficiary_history({"query": "Priya"})
+Final Answer: [हिंदी में अंतिम मूल्यांकन]`;
+
+function buildSystemPrompt(lang) {
+  const base = `You are an experienced NGO field coordinator helping field workers support children's education outcomes in rural India.
 
 A field worker has submitted a raw, messy observation about a child. Your job is to reason through it step-by-step, gather data using tools, and build a complete picture of the situation.
 
@@ -46,6 +60,9 @@ CRITICAL RULES:
 - Always check community patterns to understand the systemic context
 - Be specific — cite actual data from the results (attendance percentages, scheme names, risk factors)
 - Your Final Answer should be 3-5 sentences that will be used to generate an action plan`;
+
+  return lang === "hi" ? base + HINDI_LANG_INSTRUCTION : base;
+}
 
 /**
  * Strip markdown bold/italic markers so parsers work even if the model
@@ -98,7 +115,9 @@ function parseThought(text) {
  * Main ReAct loop. Streams reasoning steps via `emit`.
  * Returns the final answer string when complete.
  */
-export async function runReActLoop(observationText, emit) {
+export async function runReActLoop(observationText, emit, lang = "en") {
+  const systemPrompt = buildSystemPrompt(lang);
+
   const messages = [
     {
       role: "user",
@@ -116,7 +135,7 @@ export async function runReActLoop(observationText, emit) {
     let iterationBuffer = "";
 
     // Stream this LLM call, emitting tokens as they arrive
-    await streamCompletion(messages, SYSTEM_PROMPT, (token) => {
+    await streamCompletion(messages, systemPrompt, (token) => {
       iterationBuffer += token;
       emit("token", { content: token });
     });

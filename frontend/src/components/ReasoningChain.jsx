@@ -1,29 +1,15 @@
 import { useEffect, useRef } from "react";
 import styles from "./ReasoningChain.module.css";
+import { useT } from "../LanguageContext.jsx";
 
-const STEP_ICONS = {
-  thought: "💭",
-  action: "⚡",
-  result: "📋",
-  final: "✅",
-  error: "⚠️",
-  status: "⏳",
-};
-
-const TOOL_LABELS = {
-  get_beneficiary_history: "Get Beneficiary History",
-  check_scheme_eligibility: "Check Scheme Eligibility",
-  find_community_patterns: "Find Community Patterns",
-};
-
-function ThoughtStep({ step }) {
+function ThoughtStep({ step, t }) {
   return (
     <div className={`${styles.step} ${styles.thought}`}>
       <div className={styles.stepHeader}>
         <span className={styles.icon}>💭</span>
-        <span className={styles.label}>Thought</span>
+        <span className={styles.label}>{t("thought")}</span>
         {step.iteration && (
-          <span className={styles.iteration}>Step {step.iteration}</span>
+          <span className={styles.iteration}>{t("step")} {step.iteration}</span>
         )}
       </div>
       <div className={styles.stepContent}>{step.content}</div>
@@ -31,27 +17,29 @@ function ThoughtStep({ step }) {
   );
 }
 
-function ActionStep({ step }) {
+function ActionStep({ step, t }) {
+  const toolLabels = {
+    get_beneficiary_history: t("toolBeneficiary"),
+    check_scheme_eligibility: t("toolScheme"),
+    find_community_patterns: t("toolCommunity"),
+  };
+
   return (
     <div className={`${styles.step} ${styles.action}`}>
       <div className={styles.stepHeader}>
         <span className={styles.icon}>⚡</span>
-        <span className={styles.label}>
-          {TOOL_LABELS[step.tool] || step.tool}
-        </span>
+        <span className={styles.label}>{toolLabels[step.tool] || step.tool}</span>
       </div>
       <div className={styles.stepContent}>
         <code className={styles.toolCall}>
-          {step.tool}(
-          {JSON.stringify(step.params)}
-          )
+          {step.tool}({JSON.stringify(step.params)})
         </code>
       </div>
     </div>
   );
 }
 
-function ResultStep({ step }) {
+function ResultStep({ step, t }) {
   let parsed = null;
   try {
     parsed = JSON.parse(step.content);
@@ -59,15 +47,21 @@ function ResultStep({ step }) {
     parsed = null;
   }
 
+  const toolLabels = {
+    get_beneficiary_history: t("toolBeneficiary"),
+    check_scheme_eligibility: t("toolScheme"),
+    find_community_patterns: t("toolCommunity"),
+  };
+
   return (
     <div className={`${styles.step} ${styles.result}`}>
       <div className={styles.stepHeader}>
         <span className={styles.icon}>📋</span>
-        <span className={styles.label}>Result from {TOOL_LABELS[step.tool] || step.tool}</span>
+        <span className={styles.label}>{t("resultFrom")} {toolLabels[step.tool] || step.tool}</span>
       </div>
       <div className={styles.stepContent}>
         {parsed ? (
-          <ResultSummary data={parsed} tool={step.tool} />
+          <ResultSummary data={parsed} tool={step.tool} t={t} />
         ) : (
           <pre className={styles.raw}>{step.content}</pre>
         )}
@@ -76,7 +70,7 @@ function ResultStep({ step }) {
   );
 }
 
-function ResultSummary({ data, tool }) {
+function ResultSummary({ data, tool, t }) {
   if (tool === "get_beneficiary_history" && data.found && data.beneficiaries) {
     const b = data.beneficiaries[0];
     const m = b.computedMetrics;
@@ -86,18 +80,18 @@ function ResultSummary({ data, tool }) {
           <strong>{b.name}</strong> — {b.age}yr, Class {b.class}, {b.village}
         </div>
         <div className={styles.summaryRow}>
-          Attendance avg: <strong>{m.averageAttendance}%</strong> ({m.attendanceTrend})
-          &nbsp;·&nbsp; Risk: <RiskBadge level={m.riskLevel} />
+          {t("attendanceAvg")}: <strong>{m.averageAttendance}%</strong> ({m.attendanceTrend})
+          &nbsp;·&nbsp; {t("risk")}: <RiskBadge level={m.riskLevel} />
         </div>
         <div className={styles.summaryRow}>
-          Risk factors: {b.riskFactors.join(", ") || "none"}
+          {t("riskFactors")}: {b.riskFactors.join(", ") || t("none")}
         </div>
         <div className={styles.summaryRow}>
-          Enrolled schemes: {b.schemes.join(", ")}
+          {t("enrolledSchemes")}: {b.schemes.join(", ")}
         </div>
         {b.previousInterventions.length > 0 && (
           <div className={styles.summaryRow}>
-            Last intervention: {b.previousInterventions.at(-1).type} (
+            {t("lastIntervention")}: {b.previousInterventions.at(-1).type} (
             {b.previousInterventions.at(-1).outcome})
           </div>
         )}
@@ -109,18 +103,18 @@ function ResultSummary({ data, tool }) {
     return (
       <div className={styles.summary}>
         <div className={styles.summaryRow}>
-          <strong>{data.beneficiaryName}</strong> — enrolled in{" "}
-          {data.alreadyEnrolled.length} schemes
+          <strong>{data.beneficiaryName}</strong> — {t("enrolledIn")}{" "}
+          {data.alreadyEnrolled.length} {t("schemes")}
         </div>
         {data.eligibleButNotEnrolled.length > 0 ? (
           <div className={styles.summaryRow}>
             <strong className={styles.highlight}>
-              Eligible but NOT enrolled ({data.eligibleButNotEnrolled.length}):
+              {t("eligibleNotEnrolled")} ({data.eligibleButNotEnrolled.length}):
             </strong>{" "}
             {data.eligibleButNotEnrolled.map((s) => s.name).join(", ")}
           </div>
         ) : (
-          <div className={styles.summaryRow}>All applicable schemes enrolled.</div>
+          <div className={styles.summaryRow}>{t("allSchemesEnrolled")}</div>
         )}
       </div>
     );
@@ -130,8 +124,8 @@ function ResultSummary({ data, tool }) {
     return (
       <div className={styles.summary}>
         <div className={styles.summaryRow}>
-          <strong>{data.village}</strong> — avg attendance {data.attendancePatterns.averageAttendance}%,
-          dropout rate {data.attendancePatterns.dropoutRateAnnual}%/yr
+          <strong>{data.village}</strong> — {t("avgAttendance")} {data.attendancePatterns.averageAttendance}%,
+          {t("dropoutRate")} {data.attendancePatterns.dropoutRateAnnual}%/yr
         </div>
         {data.alerts && (
           <div className={`${styles.summaryRow} ${styles.alert}`}>
@@ -142,47 +136,35 @@ function ResultSummary({ data, tool }) {
           {data.attendancePatterns.currentMonthAlert}
         </div>
         <div className={styles.summaryRow}>
-          Primary risks: {data.primaryRiskFactors.join(", ")}
+          {t("primaryRisks")}: {data.primaryRiskFactors.join(", ")}
         </div>
       </div>
     );
   }
 
-  // Fallback: raw JSON (collapsed)
   return (
     <details>
-      <summary className={styles.rawToggle}>View raw data</summary>
+      <summary className={styles.rawToggle}>{t("viewRaw")}</summary>
       <pre className={styles.raw}>{JSON.stringify(data, null, 2)}</pre>
     </details>
   );
 }
 
 function RiskBadge({ level }) {
-  const colors = {
-    high: "#ef4444",
-    medium: "#f59e0b",
-    low: "#22c55e",
-  };
+  const colors = { high: "#ef4444", medium: "#f59e0b", low: "#22c55e" };
   return (
-    <span
-      style={{
-        color: colors[level] || "#666",
-        fontWeight: 600,
-        textTransform: "uppercase",
-        fontSize: "11px",
-      }}
-    >
+    <span style={{ color: colors[level] || "#666", fontWeight: 600, textTransform: "uppercase", fontSize: "11px" }}>
       {level}
     </span>
   );
 }
 
-function FinalStep({ step }) {
+function FinalStep({ step, t }) {
   return (
     <div className={`${styles.step} ${styles.final}`}>
       <div className={styles.stepHeader}>
         <span className={styles.icon}>✅</span>
-        <span className={styles.label}>Agent Assessment</span>
+        <span className={styles.label}>{t("agentAssessment")}</span>
       </div>
       <div className={styles.stepContent}>{step.content}</div>
     </div>
@@ -199,6 +181,7 @@ function StreamingLine({ text }) {
 }
 
 export default function ReasoningChain({ steps, streamingText, isLoading }) {
+  const t = useT();
   const bottomRef = useRef(null);
 
   useEffect(() => {
@@ -210,11 +193,11 @@ export default function ReasoningChain({ steps, streamingText, isLoading }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Reasoning Chain</h2>
+        <h2 className={styles.title}>{t("reasoningTitle")}</h2>
         {isLoading && (
           <span className={styles.liveIndicator}>
             <span className={styles.liveDot} />
-            Live
+            {t("live")}
           </span>
         )}
       </div>
@@ -223,19 +206,19 @@ export default function ReasoningChain({ steps, streamingText, isLoading }) {
         {steps.map((step, i) => {
           switch (step.type) {
             case "thought":
-              return <ThoughtStep key={i} step={step} />;
+              return <ThoughtStep key={i} step={step} t={t} />;
             case "action":
-              return <ActionStep key={i} step={step} />;
+              return <ActionStep key={i} step={step} t={t} />;
             case "result":
-              return <ResultStep key={i} step={step} />;
+              return <ResultStep key={i} step={step} t={t} />;
             case "final":
-              return <FinalStep key={i} step={step} />;
+              return <FinalStep key={i} step={step} t={t} />;
             case "error":
               return (
                 <div key={i} className={`${styles.step} ${styles.error}`}>
                   <div className={styles.stepHeader}>
                     <span className={styles.icon}>⚠️</span>
-                    <span className={styles.label}>Error</span>
+                    <span className={styles.label}>{t("error")}</span>
                   </div>
                   <div className={styles.stepContent}>{step.message}</div>
                 </div>
@@ -245,12 +228,11 @@ export default function ReasoningChain({ steps, streamingText, isLoading }) {
           }
         })}
 
-        {/* Live streaming buffer for the current LLM call */}
         {isLoading && streamingText && (
           <div className={`${styles.step} ${styles.streaming}`}>
             <div className={styles.stepHeader}>
               <span className={styles.icon}>💭</span>
-              <span className={styles.label}>Thinking...</span>
+              <span className={styles.label}>{t("thinking")}</span>
             </div>
             <div className={styles.stepContent}>
               <StreamingLine text={streamingText} />

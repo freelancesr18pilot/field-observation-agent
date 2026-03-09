@@ -1,18 +1,15 @@
 import styles from "./ActionPlan.module.css";
+import { useT } from "../LanguageContext.jsx";
 
-const RISK_CONFIG = {
-  high: { label: "HIGH RISK", color: "#ef4444", bg: "#fef2f2" },
-  medium: { label: "MEDIUM RISK", color: "#f59e0b", bg: "#fffbeb" },
-  low: { label: "LOW RISK", color: "#22c55e", bg: "#f0fdf4" },
-};
+function RiskBadge({ level, t }) {
+  const cfg = {
+    high:   { label: t("highRisk"),   color: "#ef4444", bg: "#fef2f2" },
+    medium: { label: t("mediumRisk"), color: "#f59e0b", bg: "#fffbeb" },
+    low:    { label: t("lowRisk"),    color: "#22c55e", bg: "#f0fdf4" },
+  }[level] || { label: level, color: "#f59e0b", bg: "#fffbeb" };
 
-function RiskBadge({ level }) {
-  const cfg = RISK_CONFIG[level] || RISK_CONFIG.medium;
   return (
-    <span
-      className={styles.riskBadge}
-      style={{ color: cfg.color, background: cfg.bg }}
-    >
+    <span className={styles.riskBadge} style={{ color: cfg.color, background: cfg.bg }}>
       {cfg.label}
     </span>
   );
@@ -38,27 +35,25 @@ function ActionCard({ action, index }) {
             </span>
           )}
         </div>
-        {action.note && (
-          <div className={styles.actionNote}>{action.note}</div>
-        )}
+        {action.note && <div className={styles.actionNote}>{action.note}</div>}
       </div>
     </div>
   );
 }
 
-function EscalationCard({ item, index }) {
+function EscalationCard({ item, t }) {
   return (
     <div className={styles.escalationCard}>
       <div className={styles.escalationTrigger}>
         <span className={styles.triggerIcon}>⚠️</span>
-        <strong>If:</strong> {item.trigger}
+        <strong>{t("ifTrigger")}</strong> {item.trigger}
       </div>
       <div className={styles.escalationAction}>
-        <strong>Then:</strong> {item.action}
+        <strong>{t("thenAction")}</strong> {item.action}
       </div>
       {item.contact && (
         <div className={styles.escalationContact}>
-          <span className={styles.metaIcon}>📞</span> Contact: {item.contact}
+          <span className={styles.metaIcon}>📞</span> {t("contact")} {item.contact}
         </div>
       )}
     </div>
@@ -66,39 +61,35 @@ function EscalationCard({ item, index }) {
 }
 
 export default function ActionPlan({ plan }) {
+  const t = useT();
   if (!plan) return null;
 
   return (
     <div className={styles.container}>
-      {/* Header */}
       <div className={styles.header}>
         <div className={styles.headerLeft}>
-          <h2 className={styles.title}>Action Plan</h2>
+          <h2 className={styles.title}>{t("actionPlanTitle")}</h2>
           <div className={styles.meta}>
             <strong>{plan.childName}</strong>
             {plan.village && <span> · {plan.village}</span>}
           </div>
         </div>
-        <RiskBadge level={plan.riskLevel} />
+        <RiskBadge level={plan.riskLevel} t={t} />
       </div>
 
-      {/* Primary Issues */}
       {plan.primaryIssues?.length > 0 && (
         <div className={styles.issues}>
           {plan.primaryIssues.map((issue, i) => (
-            <span key={i} className={styles.issueTag}>
-              {issue}
-            </span>
+            <span key={i} className={styles.issueTag}>{issue}</span>
           ))}
         </div>
       )}
 
-      {/* Immediate Actions */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionIcon}>🚨</span>
-          <h3>Immediate Actions</h3>
-          <span className={styles.sectionBadge}>Within 48 hours</span>
+          <h3>{t("immediateActions")}</h3>
+          <span className={styles.sectionBadge}>{t("within48")}</span>
         </div>
         <div className={styles.actionList}>
           {plan.immediate?.map((action, i) => (
@@ -107,12 +98,11 @@ export default function ActionPlan({ plan }) {
         </div>
       </section>
 
-      {/* Medium-Term */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionIcon}>📅</span>
-          <h3>Medium-Term Actions</h3>
-          <span className={styles.sectionBadge}>2–4 weeks</span>
+          <h3>{t("mediumTermActions")}</h3>
+          <span className={styles.sectionBadge}>{t("twoFourWeeks")}</span>
         </div>
         <div className={styles.actionList}>
           {plan.mediumTerm?.map((action, i) => (
@@ -121,50 +111,43 @@ export default function ActionPlan({ plan }) {
         </div>
       </section>
 
-      {/* Escalation */}
       {plan.escalation?.length > 0 && (
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionIcon}>📢</span>
-            <h3>Escalation Triggers</h3>
+            <h3>{t("escalationTriggers")}</h3>
           </div>
           <div className={styles.actionList}>
             {plan.escalation.map((item, i) => (
-              <EscalationCard key={i} item={item} index={i} />
+              <EscalationCard key={i} item={item} t={t} />
             ))}
           </div>
         </section>
       )}
 
-      {/* Schemes to Enroll */}
       {plan.schemesToEnroll?.length > 0 && (
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionIcon}>📋</span>
-            <h3>Schemes to Enroll</h3>
+            <h3>{t("schemesToEnroll")}</h3>
           </div>
           <ul className={styles.schemeList}>
             {plan.schemesToEnroll.map((s, i) => (
-              <li key={i} className={styles.schemeItem}>
-                {s}
-              </li>
+              <li key={i} className={styles.schemeItem}>{s}</li>
             ))}
           </ul>
         </section>
       )}
 
-      {/* Success Indicators */}
       {plan.successIndicators?.length > 0 && (
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionIcon}>🎯</span>
-            <h3>Success Indicators</h3>
+            <h3>{t("successIndicators")}</h3>
           </div>
           <ul className={styles.schemeList}>
             {plan.successIndicators.map((s, i) => (
-              <li key={i} className={styles.schemeItem}>
-                {s}
-              </li>
+              <li key={i} className={styles.schemeItem}>{s}</li>
             ))}
           </ul>
         </section>

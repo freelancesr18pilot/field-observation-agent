@@ -61,7 +61,17 @@ CONSTRAINTS — keep the JSON compact:
 
 Be specific. Use real scheme names. Name the relevant government bodies (CWC, DCPO, Block Education Officer, etc.). Do not be generic.`;
 
-export async function generateActionPlan(finalAnswer, conversationHistory) {
+const HINDI_ACTION_PLAN_INSTRUCTION = `
+
+भाषा आवश्यकता — अनिवार्य: JSON की सभी string values हिंदी में लिखें।
+JSON keys (childName, village, riskLevel, action, owner, deadline, note, trigger, contact) अंग्रेज़ी में रखें।
+riskLevel की value "high", "medium", या "low" ही रहनी चाहिए (अंग्रेज़ी में)।
+बाकी सभी text values हिंदी में लिखें।`;
+
+export async function generateActionPlan(finalAnswer, conversationHistory, lang = "en") {
+  const systemPrompt = lang === "hi"
+    ? ACTION_PLAN_SYSTEM + HINDI_ACTION_PLAN_INSTRUCTION
+    : ACTION_PLAN_SYSTEM;
   // Extract only the text turns (skip raw tool result turns which are large JSON blobs).
   // We keep assistant turns (thoughts/actions) and the final answer summary.
   // This prevents the input from overflowing and leaving too few tokens for output.
@@ -81,7 +91,7 @@ Generate a structured action plan as valid JSON. Be specific: use real scheme na
     },
   ];
 
-  const rawResponse = await complete(messages, ACTION_PLAN_SYSTEM);
+  const rawResponse = await complete(messages, systemPrompt);
 
   // Extract JSON — handle markdown code fences or bare JSON
   const jsonMatch =
